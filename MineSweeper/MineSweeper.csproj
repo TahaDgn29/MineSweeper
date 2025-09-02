@@ -52,6 +52,12 @@
     <Compile Include="LevelEasy.Designer.cs">
       <DependentUpon>LevelEasy.cs</DependentUpon>
     </Compile>
+    <Compile Include="LevelMedium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LevelMedium.Designer.cs">
+      <DependentUpon>LevelMedium.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LevelEasy.resx">
       <DependentUpon>LevelEasy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelMedium.resx">
+      <DependentUpon>LevelMedium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

@@ -26,7 +26,7 @@ namespace MineSweeper
 
             DifficultyOption.Items.Add("ZORLUK SEÇİNİZ");
             DifficultyOption.Items.Add("Kolay 5x10");
-            DifficultyOption.Items.Add("Orta 10x20(Tadilatta)");
+            DifficultyOption.Items.Add("Orta 10x10");
             DifficultyOption.Items.Add("Zor 20x25(Tadilatta)");
 
             DifficultyOption.SelectedIndex = 0;
@@ -52,6 +52,18 @@ namespace MineSweeper
                 LevelEasy levelEasy = new LevelEasy();
                 this.Hide();
                 levelEasy.Show();
+            }
+
+            if (DifficultyOption.SelectedIndex == 2)
+            {
+                LevelMedium levelMedium = new LevelMedium();
+                this.Hide();
+                levelMedium.Show();
+            }
+
+            if (DifficultyOption.SelectedIndex == 3)
+            {
+                
             }
         }
     }
