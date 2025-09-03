@@ -197,7 +197,7 @@ namespace MineSweeper
                     }
 
                     //sol alt
-                    if (i <= 85 && i % 10 != 0)
+                    if (i <= 90 && i % 10 != 0)
                     {
                         if (mineField[i + 9].order == 1)
                         {
@@ -206,7 +206,7 @@ namespace MineSweeper
                     }
 
                     //alt
-                    if (i <= 84)
+                    if (i <= 89)
                     {
                         if (mineField[i + 10].order == 1)
                         {
@@ -215,7 +215,7 @@ namespace MineSweeper
                     }
 
                     //sağ alt
-                    if (i <= 83 && (i + 1) % 10 != 0)
+                    if (i <= 88 && (i + 1) % 10 != 0)
                     {
                         if (mineField[i + 11].order == 1)
                         {
@@ -419,7 +419,7 @@ namespace MineSweeper
                 }
 
                 //sol alt
-                if (i <= 85 && i % 10 != 0)
+                if (i <= 90 && i % 10 != 0)
                 {
                     if (mineField[i + 9].order != 1)
                     {
@@ -428,7 +428,7 @@ namespace MineSweeper
                 }
 
                 //alt
-                if (i <= 84)
+                if (i <= 89)
                 {
                     if (mineField[i + 10].order != 1)
                     {
@@ -437,7 +437,7 @@ namespace MineSweeper
                 }
 
                 //sağ alt
-                if (i <= 83 && (i + 1) % 10 != 0)
+                if (i <= 88 && (i + 1) % 10 != 0)
                 {
                     if (mineField[i + 11].order != 1)
                     {
