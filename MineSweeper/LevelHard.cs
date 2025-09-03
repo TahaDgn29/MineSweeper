@@ -11,9 +11,9 @@ using MineSweeper.Properties;
 
 namespace MineSweeper
 {
-    public partial class LevelMedium: Form
+    public partial class LevelHard: Form
     {
-        public LevelMedium()
+        public LevelHard()
         {
             InitializeComponent();
         }
@@ -22,12 +22,16 @@ namespace MineSweeper
 
         List<MineField> mineField = new List<MineField>();
 
-        Point trash = new Point(900, 200);
+        Point trash = new Point(1300, 200);
 
         int a = 0;
-        int remain = 85;
 
-        private void LevelMedium_Load(object sender, EventArgs e)
+        public static int numberOfMines = 50;
+        public static int numberOfBox = 150;
+
+        int remain = numberOfBox - numberOfMines;
+
+        private void LevelHard_Load(object sender, EventArgs e)
         {
             int i = 0;
             int j = 0;
@@ -37,9 +41,9 @@ namespace MineSweeper
 
 
             //mayınları saklayan bölümü oluşturuyoruz
-            while (i < 100)
+            while (i < numberOfBox)
             {
-                if (j > 9)
+                if (j > 14)
                 {
                     j = 0;
                     x = 100;
@@ -71,6 +75,7 @@ namespace MineSweeper
                 j++;
             }
 
+
             i = 0;
             j = 0;
 
@@ -78,9 +83,9 @@ namespace MineSweeper
             y = 50;
 
             //mayınlı arazi gridi oluşturuluyor
-            while (i < 100)
+            while (i < numberOfBox)
             {
-                if (j > 9)
+                if (j > 14)
                 {
                     j = 0;
                     x = 100;
@@ -112,27 +117,27 @@ namespace MineSweeper
             j = 0;
 
             Random random = new Random();
-            int r = random.Next(0, 100);
+            int r = random.Next(0, 150);
 
             //mayınlar yerleştiriliyor
-            while (i < 15)
+            while (i < numberOfMines)
             {
 
                 while (mineField[r].order == 1)
                 {
-                    r = random.Next(0, 100);
+                    r = random.Next(0, 150);
                 }
 
                 mineField[r].order = 1;
 
-                r = r = random.Next(0, 100); ;
+                r = r = random.Next(0, 150); ;
                 i++;
             }
 
             /*silinecek print fonksiyonu */
             i = 0;
 
-            while (i < 100)
+            while (i < numberOfBox)
             {
 
                 if (mineField[i].order == 1)
@@ -147,39 +152,39 @@ namespace MineSweeper
             //ipuçları yerleştiriliyor
             i = 0;
 
-            while (i < 100)
+            while (i < numberOfBox)
             {
                 if (mineField[i].order != 1)
                 {
                     //sol üst kontrol
-                    if (i >= 11 && i % 10 != 0)
+                    if (i >= 16 && i % 15 != 0)
                     {
-                        if (mineField[i - 11].order == 1)
+                        if (mineField[i - 16].order == 1)
                         {
                             mineField[i].value++;
                         }
                     }
 
                     //üst
-                    if (i >= 10)
+                    if (i >= 15)
                     {
-                        if (mineField[i - 10].order == 1)
+                        if (mineField[i - 15].order == 1)
                         {
                             mineField[i].value++;
                         }
                     }
 
                     //sağ üst
-                    if (i >= 9 && (i + 1) % 10 != 0)
+                    if (i >= 14 && (i + 1) % 15 != 0)
                     {
-                        if (mineField[i - 9].order == 1)
+                        if (mineField[i - 14].order == 1)
                         {
                             mineField[i].value++;
                         }
                     }
 
                     //sol
-                    if (i >= 1 && i % 10 != 0)
+                    if (i >= 1 && i % 15 != 0)
                     {
                         if (mineField[i - 1].order == 1)
                         {
@@ -188,7 +193,7 @@ namespace MineSweeper
                     }
 
                     //sağ
-                    if (i <= 98 && (i + 1) % 10 != 0)
+                    if (i <= 148 && (i + 1) % 15 != 0)
                     {
                         if (mineField[i + 1].order == 1)
                         {
@@ -197,27 +202,27 @@ namespace MineSweeper
                     }
 
                     //sol alt
-                    if (i <= 85 && i % 10 != 0)
+                    if (i <= 135 && i % 15 != 0)
                     {
-                        if (mineField[i + 9].order == 1)
+                        if (mineField[i + 14].order == 1)
                         {
                             mineField[i].value++;
                         }
                     }
 
                     //alt
-                    if (i <= 84)
+                    if (i <= 134)
                     {
-                        if (mineField[i + 10].order == 1)
+                        if (mineField[i + 15].order == 1)
                         {
                             mineField[i].value++;
                         }
                     }
 
                     //sağ alt
-                    if (i <= 83 && (i + 1) % 10 != 0)
+                    if (i <= 133 && (i + 1) % 15 != 0)
                     {
-                        if (mineField[i + 11].order == 1)
+                        if (mineField[i + 16].order == 1)
                         {
                             mineField[i].value++;
                         }
@@ -275,7 +280,7 @@ namespace MineSweeper
             }
         }
 
-        private void LevelMedium_FormClosed(object sender, FormClosedEventArgs e)
+        private void LevelHard_FormClosed(object sender, FormClosedEventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
@@ -314,7 +319,7 @@ namespace MineSweeper
                 {
                     int i = 0;
 
-                    while (i < 100)
+                    while (i < numberOfBox)
                     {
                         if (clicked.Location == mineField[i].box.Location)
                         {
@@ -374,34 +379,34 @@ namespace MineSweeper
             if (true)
             {
                 //sol üst kontrol
-                if (i >= 11 && i % 10 != 0)
+                if (i >= 16 && i % 15 != 0)
                 {
-                    if (mineField[i - 11].order != 1)
+                    if (mineField[i - 16].order != 1)
                     {
-                        mineFieldCover[i - 11].box.Location = trash;
+                        mineFieldCover[i - 16].box.Location = trash;
                     }
                 }
 
                 //üst
-                if (i >= 10)
+                if (i >= 15)
                 {
-                    if (mineField[i - 10].order != 1)
+                    if (mineField[i - 15].order != 1)
                     {
-                        mineFieldCover[i - 10].box.Location = trash;
+                        mineFieldCover[i - 15].box.Location = trash;
                     }
                 }
 
                 //sağ üst
-                if (i >= 9 && (i + 1) % 10 != 0)
+                if (i >= 14 && (i + 1) % 15 != 0)
                 {
-                    if (mineField[i - 9].order != 1)
+                    if (mineField[i - 14].order != 1)
                     {
-                        mineFieldCover[i - 9].box.Location = trash;
+                        mineFieldCover[i - 14].box.Location = trash;
                     }
                 }
 
                 //sol
-                if (i >= 1 && i % 10 != 0)
+                if (i >= 1 && i % 15 != 0)
                 {
                     if (mineField[i - 1].order != 1)
                     {
@@ -410,7 +415,7 @@ namespace MineSweeper
                 }
 
                 //sağ
-                if (i <= 98 && (i + 1) % 10 != 0)
+                if (i <= 148 && (i + 1) % 15 != 0)
                 {
                     if (mineField[i + 1].order != 1)
                     {
@@ -419,29 +424,29 @@ namespace MineSweeper
                 }
 
                 //sol alt
-                if (i <= 85 && i % 10 != 0)
+                if (i <= 135 && i % 15 != 0)
                 {
-                    if (mineField[i + 9].order != 1)
+                    if (mineField[i + 14].order != 1)
                     {
-                        mineFieldCover[i + 9].box.Location = trash;
+                        mineFieldCover[i + 14].box.Location = trash;
                     }
                 }
 
                 //alt
-                if (i <= 84)
+                if (i <= 134)
                 {
-                    if (mineField[i + 10].order != 1)
+                    if (mineField[i + 15].order != 1)
                     {
-                        mineFieldCover[i + 10].box.Location = trash;
+                        mineFieldCover[i + 15].box.Location = trash;
                     }
                 }
 
                 //sağ alt
-                if (i <= 83 && (i + 1) % 10 != 0)
+                if (i <= 133 && (i + 1) % 15 != 0)
                 {
-                    if (mineField[i + 11].order != 1)
+                    if (mineField[i + 16].order != 1)
                     {
-                        mineFieldCover[i + 11].box.Location = trash;
+                        mineFieldCover[i + 16].box.Location = trash;
                     }
                 }
             }
@@ -450,9 +455,9 @@ namespace MineSweeper
         public void GameWon()
         {
             int i = 0;
-            remain = 85;
+            remain = numberOfBox - numberOfMines;
 
-            while (i < 100)
+            while (i < numberOfBox)
             {
 
                 if (mineFieldCover[i].box.Location == trash)
